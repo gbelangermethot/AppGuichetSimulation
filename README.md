@@ -1,40 +1,58 @@
 # AppGuichetSimulation
-Simulation d'une application banquaire/guichet automatique.
+Simulation d’une application bancaire / guichet automatique développée en C# avec WPF et SQL Server.
+
 
 ## Fonctionalités
-- Login client ou Admin
-- Opérations banquaires variées (dépot, retrait, paiement de facture, transfer de fonds)
+- Connexion en mode client ou administrateur
+- Opérations bancaires variées :
+  - dépôt
+  - retrait
+  - paiement de facture
+  - transfert de fonds
 - Visualisation des transactions
-- marge de crédit qui peux couvrir les découverts
-- creation de clients et de compte
-- gestion de l'argent disponible dans le guichet
+- Gestion d’une marge de crédit pouvant couvrir les découverts
+- Creation de clients et de compte
+- Gestion de l'argent disponible dans le guichet
 
 ## Technologies utilisées
-- C#, Microsoft SQL server
+- C#
+- WPF
+- Microsoft SQL server
 - Entity framework core
 
 ## Installation
-- Avoir la version developpeur de microsoft SQl server et acces au serveur local par defaut .
-- ouvrir le projet dans visual studio.
-- Ouvrir la console NuGet de l'onglet tools ou outils -> NuGet Package Manager -> Package manager console.
-- Executer la commande: EntityFrameworkCore\Add-Migration UpdateModels.
-- Puis executer la commande: EntityFrameworkCore\Update-Database.
+1. Installer la version développeur de Microsoft SQL Server
+2. S’assurer que l’accès au serveur local par défaut (.) est disponible
+3. Ouvrir le projet dans Visual Studio
+4. Ouvrir la console NuGet :
+   - **Tools / Outils**
+   - **NuGet Package Manager**
+   - **Package Manager Console**
+5. Exécuter la commande suivante : Add-Migration UpdateModels
+6. Exécuter la commande suivante : Update-Database
 
-## Usage
-- Se connecter a l'utilisateur 100003 avec le NIP 1234 ouvre l'interface admin.
-- de l'interface admin l'utilisateur peut creer des utilisateur clients et des comptes pour les utilisateur clients ainsi que executer d'autre opérations.
-- de l'interface client, l'utilisateur peu faire des opération banquaires sur ses différents comptes. 
+## Utilisation
+- Se connecter avec l’utilisateur 100003 et le NIP 1234 pour ouvrir l’interface administrateur.
+- dDans l’interface administrateur, il est possible :
+  - de créer des clients
+  - de créer des comptes
+  - d’exécuter différentes opérations de gestion
+- Dans l’interface client, l’utilisateur peut effectuer des opérations bancaires sur ses différents comptes
 
 ## Ce que j'ai appris
-- Implémenter Entity framework Core pour que l'app communique avec la base de données.
-- Faire des seeds de base dans le modele de données and le fichier context.
-- Migrer l'app er generer la base de données a partir du modèle dans le fichier context.
-- faire des controles personalisé réutilisables comme des boutton aux coins arrondis et un clafier numerique cliquable.
-- J'ai améliorer ma conaissance de Entity framework core.
-- J'ai améliorer ma connaissance des application WPF et leur mise en page.
+- Implémenter Entity Framework Core pour faire communiquer l’application avec la base de donnée
+- Créer des données de départ (seed data) dans le modèle et le fichier de contexte
+- Générer la base de données à partir du modèle avec les migrations
+- Créer des contrôles personnalisés réutilisables, comme :
+  - des boutons aux coins arrondis
+  - un clavier numérique cliquable
+- Approfondir mes connaissances de Entity Framework Core
+- Améliorer ma compréhension des applications WPF et de leur mise en page
 
-## Amélioration futures.
-- Je pourrais ajouter d'autres type de comptes, d'autres type de transaction ou d'utilisateur.
-- je pourrais avoir un code normalisé pour l'utilisation du clavier numérique.
-- Je pourrait améliorer la mise en page pour une taille de page spécifique. Pour l'instant elle est reactive et cet app en a pas vraiment besoin.
-- Je pourrait encripter les données comme le NIP dans la base de données.
+## Améliorations futures
+- Ajouter d’autres types de comptes
+- Ajouter d’autres types de transactions
+- Ajouter d’autres types d’utilisateurs
+- Uniformiser davantage le code lié au clavier numérique
+- Ajuster davantage la mise en page pour une taille d’écran précise
+- Chiffrer les données sensibles, comme le NIP, dans la base de données

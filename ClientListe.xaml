@@ -1,0 +1,113 @@
+﻿<Page x:Class="Projet_Guichet.ClientListe"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projet_Guichet"
+      xmlns:UserControls="clr-namespace:Projet_Guichet.View.UserControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ClientListe"
+      Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="LightSkyBlue"/>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical">
+                <TextBlock Text="No Client"
+                           FontSize="16"
+                           Margin="10"/>
+                <TextBox x:Name="ClientIdFilter"
+                         TextChanged="Filtre_Changed"
+                         Height="40"
+                         Margin="10, 0, 10, 0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical">
+                <TextBlock Text="Nom"
+                           FontSize="16"
+                           Margin="10"/>
+                <TextBox x:Name="NomFilter"
+                         TextChanged="Filtre_Changed"
+                         Height="40"
+                         Margin="10, 0, 10, 0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Orientation="Vertical">
+                <TextBlock Text="Prénom"
+                           FontSize="16"
+                           Margin="10"/>
+                <TextBox x:Name="PrenomFilter"
+                            TextChanged="Filtre_Changed"
+                            Height="40"
+                            Margin="10, 0, 10, 0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Vertical">
+                <TextBlock Text="Courriel"
+                           FontSize="16"
+                           Margin="10"/>
+                <TextBox x:Name="CourrielFilter"
+                        TextChanged="Filtre_Changed"
+                        Height="40"
+                        Margin="10, 0, 10, 0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Vertical">
+                <TextBlock Text="Téléphone"
+                           FontSize="16"
+                           Margin="10"/>
+                <TextBox x:Name="TelephoneFilter"
+                            TextChanged="Filtre_Changed"
+                            Height="40"
+                            Margin="10, 0, 10, 0"/>
+            </StackPanel>
+            <UserControls:CustomBtn Grid.Row="5" x:Name="btnRetour" BtnText="Retour" Margin="10" Click="btnRetour_Click" VerticalAlignment="Bottom"/>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" 
+                       Text="Liste des clients"
+                       FontSize="24"
+                       Margin="0,20"
+                       HorizontalAlignment="Center"/>
+
+            <ListBox Grid.Row="1" 
+                     ItemsSource="{Binding MesClients}" 
+                     SelectionChanged="ListBox_SelectionChanged"
+                     HorizontalContentAlignment="Stretch">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="LightGray"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <UserControls:ListBtn BtnHeight="50" BtnText="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </Grid>
+    </Grid>
+</Page>

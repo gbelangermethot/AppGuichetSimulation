@@ -1,0 +1,51 @@
+﻿<Page x:Class="Projet_Guichet.InterfacePaiementFacture"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projet_Guichet"
+      xmlns:UserControls="clr-namespace:Projet_Guichet.View.UserControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="InterfacePaiementFacture">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Background="White"/>
+        <StackPanel Width="250"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+
+            <TextBlock Text="Paiement de facture"
+               FontSize="24"
+               Margin="0,0,0,30"
+               HorizontalAlignment="Center"/>
+
+            <TextBlock Text="Montant du Paiement"
+                       FontSize="16"
+                       Margin="0,0,0,5"
+                       HorizontalAlignment="Left"/>
+
+
+
+            <TextBox x:Name="txtMontant" 
+                     IsReadOnly="True"
+                     Text="00.00 $"
+                     Height="35"
+                     Margin="0,0,0,20"/>
+
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <UserControls:CustomBtn x:Name="btnSoumettre" BtnText="Soumettre" Margin="10" Click="btnSoumettre_Click"/>
+                <UserControls:CustomBtn x:Name="btnRetour" BtnText="Retour" Margin="10" Click="btnRetour_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Border Grid.Column="1" Background="LightSkyBlue"/>
+        <UserControls:numericKeyboard Grid.Column="1" x:Name="MyKeyboard"/>
+    </Grid>
+</Page>

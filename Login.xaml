@@ -1,0 +1,77 @@
+﻿<Page x:Class="Projet_Guichet.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Projet_Guichet"
+        xmlns:UserControls="clr-namespace:Projet_Guichet.View.UserControls"
+        mc:Ignorable="d"
+        d:DesignHeight="450" d:DesignWidth="800"
+        Title="Login"
+        Background="White">
+
+    
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="60*"/>
+                    <ColumnDefinition Width="20*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="1"
+                   Text="Banque Stardew"
+                   FontSize="24"
+                   Margin="0,0,0,30"
+                   HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="1" Grid.Row="1">
+                    <TextBlock Grid.Row="1" Grid.Column="1"
+                               Text="Code Client"
+                               FontSize="16"
+                               Margin="0,0,0,5"
+                               HorizontalAlignment="Stretch"/>
+                
+                    <TextBox x:Name="txtUserId" 
+                            Height="35"
+                            Margin="0,0,0,10"
+                            IsReadOnly="True"
+                            Text="{Binding UserId, UpdateSourceTrigger=PropertyChanged}"
+                            PreviewMouseDown="txtUserId_PreviewMouseDown"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" Grid.Row="2">
+                    <TextBlock Grid.Row="1" Grid.Column="1"
+                               Text="NIP"
+                               FontSize="16"
+                               Margin="0,0,0,5"
+                               HorizontalAlignment="Stretch"/>
+
+                    <PasswordBox x:Name="txtNIP"
+                             Height="35"
+                             Margin="0,0,0,10"
+                             PreviewMouseDown="txtNip_PreviewMouseDown"/>
+                </StackPanel>
+
+                <UserControls:CustomBtn Grid.Row="3" Grid.Column="1" BtnText="SE CONNECTER" x:Name="btnLogin"
+                                      Height="60" HorizontalAlignment="Stretch" Click="Login_Click" />
+            </Grid>
+        </Grid>
+
+        <Border Grid.Column="1" Background="LightSkyBlue"/>
+        <UserControls:numericKeyboard Grid.Column="1" x:Name="MyKeyboard"/>
+    </Grid>
+</Page>

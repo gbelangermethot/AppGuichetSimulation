@@ -1,0 +1,149 @@
+﻿<Page x:Class="Projet_Guichet.ClientDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Projet_Guichet"
+      xmlns:UserControls="clr-namespace:Projet_Guichet.View.UserControls"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ClientDetails"
+      Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+<Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                HorizontalAlignment="Stretch">
+
+                <TextBlock x:Name="tbEntete"
+                       Text="Client no: "
+                       FontSize="24"
+                       Margin="10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"/>
+            </Border>
+
+            <Border Grid.Row="1" 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                HorizontalAlignment="Stretch">
+                <TextBlock x:Name="tbNom"
+                       Text="Nom: "
+                       FontSize="20"
+                       Margin="10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"/>
+            </Border>
+
+            <Border Grid.Row="2" 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                HorizontalAlignment="Stretch">
+                <TextBlock x:Name="tbPrenom"
+                       Text="Prénom: "
+                       FontSize="20"
+                       Margin="10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"/>
+            </Border>
+
+            <Border Grid.Row="3" 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                HorizontalAlignment="Stretch">
+                <TextBlock Grid.Row="3" 
+                       x:Name="tbTelephone"
+                       Text="Téléphone: "
+                       FontSize="20"
+                       Margin="10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"/>
+            </Border>
+
+            <Border Grid.Row="4" 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                HorizontalAlignment="Stretch">
+                <TextBlock Grid.Row="4" 
+                       x:Name="tbCourriel"
+                       Text="Courriel: "
+                       FontSize="20"
+                       Margin="10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"/>
+            </Border>
+
+            <Border Grid.Row="5" 
+                    BorderBrush="Black" 
+                    BorderThickness="1" 
+                    HorizontalAlignment="Stretch">
+                <TextBlock Grid.Row="5" 
+                           x:Name="tbStatus"
+                           Text="Statut de l'utilisateur: "
+                           FontSize="20"
+                           Margin="10"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           TextWrapping="Wrap"/>
+            </Border>
+
+            <Border Grid.Row="6" 
+                BorderBrush="Black" 
+                BorderThickness="1" 
+                HorizontalAlignment="Stretch">
+                <TextBlock Grid.Row="6" 
+                       x:Name="tbDate"
+                       Text="Date de creation: "
+                       FontSize="20"
+                       Margin="10"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       TextWrapping="Wrap"/>
+            </Border>
+        </Grid>
+        <Border Grid.Column="1" Background="LightSkyBlue"/>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <UserControls:CustomBtn Grid.Column="0" Grid.Row="0" Margin="20" 
+                           BtnText="Cheque &#10;Solde: " x:Name="btnCheque" Click="btnCheque_Click"/>
+            <UserControls:CustomBtn Grid.Column="1" Grid.Row="0" Margin="20"
+                           BtnText="Epargne&#10;Solde: " x:Name="btnEpargne" Click="btnEpargne_Click"/>
+            <UserControls:CustomBtn Grid.Column="0" Grid.Row="1" Margin="20"
+                           BtnText="Hypotequaire&#10;Solde: " x:Name="btnHypothequaire" Click="btnHypothequaire_Click"/>
+            <UserControls:CustomBtn Grid.Column="1" Grid.Row="1" Margin="20"
+                           BtnText="Marge de credit&#10;Solde: " x:Name="btnMargeCredit" Click="btnMargeCredit_Click"/>
+            <UserControls:CustomBtn Grid.Column="1" Grid.Row="2" x:Name="btnBloquer" BtnText="Bloquer" Margin="20" Click="btnBloquer_Click" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+            <UserControls:CustomBtn Grid.Column="0" Grid.Row="2" x:Name="btnRetour" BtnText="Retour" Margin="20" Click="btnRetour_Click" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </Grid>
+
+    </Grid>
+</Page>

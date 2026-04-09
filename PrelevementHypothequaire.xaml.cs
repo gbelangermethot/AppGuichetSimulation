@@ -1,0 +1,87 @@
+﻿using Projet_Guichet.Models;
+using Projet_Guichet.Services;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Microsoft.EntityFrameworkCore;
+
+namespace Projet_Guichet
+{
+   public partial class PrelevementHypothequaire : Page
+    {
+        private decimal montant = 00.00m;
+        private long _cents = 0;
+        public ObservableCollection<Compte> ListeComptes { get; set; }
+
+        public void ChargerComptes()
+        {
+            using (var db = new GuichetContext())
+            {
+                var comptes = db.Comptes.Include(c => c.Type)
+                                        .Include(c => c.Utilisateur)
+                                        .Where(c => c.TypeId == 3).ToList();
+                ListeComptes = new ObservableCollection<Compte>(comptes);
+            }
+            this.DataContext = this;
+        }
+        public PrelevementHypothequaire()
+        {
+            ChargerComptes();
+            InitializeComponent();
+            this.DataContext = this;
+            MyKeyboard.OnKeyPressed += HandleKeyboardInput;
+        }
+
+        private void HandleKeyboardInput(string key)
+        {
+            if (key == "Éffacer" || key == "Effacer")
+            {
+                _cents = 0;
+            }
+            else if (key == "Corriger")
+            {
+                _cents /= 10; // Removes the last digit
+            }
+            else if (int.TryParse(key, out int digit))
+            {
+                // Limit to 8 digits to prevent overflow (optional)
+                if (_cents < 10000000)
+                    _cents = (_cents * 10) + digit;
+            }
+
+            // Convert cents to decimal (e.g., 123 becomes 1.23)
+            montant = _cents / 100m;
+
+            // Format for display: "C2" is Currency format (01.23$)
+            txtMontant.Text = montant.ToString("C2");
+        }
+
+        private void btnSoumettre_Click(object sender, RoutedEventArgs e)
+        {
+            Compte compte = (Compte)cmbClient.SelectedItem;
+
+            if (compte != null)
+            {
+                BanqueService.PrelevementHypothequaire(compte, montant);
+            }
+            else 
+            {
+                MessageBox.Show("Veuillez sélectionner un compte", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new AdminInterface());
+        }
+   }
+}

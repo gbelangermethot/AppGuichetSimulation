@@ -33,7 +33,7 @@ Simulation d’une application bancaire / guichet automatique développée en C#
 
 ## Utilisation
 - Se connecter avec l’utilisateur 100003 et le NIP 1234 pour ouvrir l’interface administrateur.
-- dDans l’interface administrateur, il est possible :
+- Dans l’interface administrateur, il est possible :
   - de créer des clients
   - de créer des comptes
   - d’exécuter différentes opérations de gestion
@@ -56,3 +56,15 @@ Simulation d’une application bancaire / guichet automatique développée en C#
 - Uniformiser davantage le code lié au clavier numérique
 - Ajuster davantage la mise en page pour une taille d’écran précise
 - Chiffrer les données sensibles, comme le NIP, dans la base de données
+
+
+## Aperçu
+
+### Interface de connexion
+![Login](screenshots/LoginPage.png)
+
+### Interface administrateur
+![Admin](screenshots/AdminInterface.png)
+
+### Interface client
+![Client](screenshots/UserInterface.png)
